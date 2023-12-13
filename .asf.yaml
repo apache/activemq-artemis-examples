@@ -15,7 +15,7 @@
 # limitations under the License.
 #
 github:
-  description: "Mirror of Apache ActiveMQ Artemis"
+  description: "Apache ActiveMQ Artemis Examples"
   homepage: https://activemq.apache.org/components/artemis
   labels:
     - apache
@@ -35,8 +35,8 @@ github:
     - java
     - jms
   enabled_merge_buttons:
-    # disable squash button:
-    squash:  false
+    # enable squash button:
+    squash:  true
     # disable merge button:
     merge:   false
     # enable rebase button:
