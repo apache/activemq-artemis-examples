@@ -37,11 +37,6 @@ under the License.
 
    <dependencies>
       <dependency>
-          <groupId>org.apache.activemq.examples.broker</groupId>
-          <artifactId>interceptor</artifactId>
-          <version>${project.version}</version>
-      </dependency>
-      <dependency>
          <groupId>org.apache.activemq</groupId>
          <artifactId>artemis-jms-client-all</artifactId>
          <version>${project.version}</version>
@@ -60,7 +55,6 @@ under the License.
                      <goal>create</goal>
                   </goals>
                   <configuration>
-                     <libList><arg>org.apache.activemq.examples.broker:interceptor:${project.version}</arg></libList>
                      <ignore>${noServer}</ignore>
                      <configuration>${basedir}/target/classes/activemq/server0</configuration>
                   </configuration>
