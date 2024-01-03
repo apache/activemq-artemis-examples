@@ -27,8 +27,8 @@
 		<activemq.basedir>${project.basedir}/../../../..</activemq.basedir>
 
 		<!-- AMQP Spring Starter -->
-		<amqp-10-jms-spring.version>2.5.8</amqp-10-jms-spring.version>
-		<spring-boot-plugin.version>2.6.15</spring-boot-plugin.version>
+		<amqp-10-jms-spring.version>2.5.25</amqp-10-jms-spring.version>
+		<spring-boot-plugin.version>2.7.18</spring-boot-plugin.version>
 	</properties>
 
 	<dependencies>
