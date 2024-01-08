@@ -51,7 +51,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Checkout Artemis Repo (non-main Examples)
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         uses: actions/checkout@v3
         with:
           repository: ${{ env.ARTEMIS_REPO }}
@@ -60,7 +60,7 @@ jobs:
 
       - name: Identify Artemis Version (non-main Examples)
         id: identify-artemis-version
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
           cd activemq-artemis
           CURRENT_ARTEMIS_BUILD_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
@@ -68,14 +68,14 @@ jobs:
           echo "artemis-build-version=${CURRENT_ARTEMIS_BUILD_VERSION}" >> $GITHUB_OUTPUT
 
       - name: Build Artemis (non-main Examples)
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
           cd activemq-artemis
           mvn -s ../activemq-artemis-examples/.github/maven-settings.xml install -DskipTests -T1C
 
       - name: Identify Examples Version (non-main Examples)
         id: identify-examples-version
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
           cd activemq-artemis-examples
           sed -i "/<parent>/,/<version>/ s~<version>[^<]*~<version>${{ steps.identify-artemis-version.outputs.artemis-build-version }}~g" ./pom.xml
@@ -84,7 +84,7 @@ jobs:
           echo "examples-build-version=${CURRENT_EXAMPLES_BUILD_VERSION}" >> $GITHUB_OUTPUT
 
       - name: Set Examples Version to Artemis Version (non-main Examples)
-        if: ${{ github.ref != 'refs/heads/main' && steps.identify-artemis-version.outputs.artemis-build-version != steps.identify-examples-version.outputs.examples-build-version }}
+        if: ${{ ((github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main')) && steps.identify-artemis-version.outputs.artemis-build-version != steps.identify-examples-version.outputs.examples-build-version }}
         run: |
           cd activemq-artemis-examples
           ./scripts/update-examples-version.sh ${{ steps.identify-artemis-version.outputs.artemis-build-version }}
@@ -130,7 +130,7 @@ jobs:
           distribution: 'temurin'
 
       - name: Checkout Artemis Repo (non-main Examples)
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         uses: actions/checkout@v3
         with:
           repository: ${{ env.ARTEMIS_REPO }}
@@ -139,7 +139,7 @@ jobs:
 
       - name: Identify Artemis Version (non-main Examples)
         id: identify-artemis-version
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
           cd activemq-artemis
           CURRENT_ARTEMIS_BUILD_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
@@ -147,14 +147,14 @@ jobs:
           echo "artemis-build-version=${CURRENT_ARTEMIS_BUILD_VERSION}" >> $GITHUB_OUTPUT
 
       - name: Build Artemis (non-main Examples)
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
           cd activemq-artemis
           mvn -s ../activemq-artemis-examples/.github/maven-settings.xml install -DskipTests -T1C
 
       - name: Identify Examples Version (non-main Examples)
         id: identify-examples-version
-        if: ${{ github.ref != 'refs/heads/main' }}
+        if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
           cd activemq-artemis-examples
           sed -i "/<parent>/,/<version>/ s~<version>[^<]*~<version>${{ steps.identify-artemis-version.outputs.artemis-build-version }}~g" ./pom.xml
@@ -163,7 +163,7 @@ jobs:
           echo "examples-build-version=${CURRENT_EXAMPLES_BUILD_VERSION}" >> $GITHUB_OUTPUT
 
       - name: Set Examples Version to Artemis Version (non-main Examples)
-        if: ${{ github.ref != 'refs/heads/main' && steps.identify-artemis-version.outputs.artemis-build-version != steps.identify-examples-version.outputs.examples-build-version }}
+        if: ${{ ((github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main')) && steps.identify-artemis-version.outputs.artemis-build-version != steps.identify-examples-version.outputs.examples-build-version }}
         run: |
           cd activemq-artemis-examples
           ./scripts/update-examples-version.sh ${{ steps.identify-artemis-version.outputs.artemis-build-version }}
