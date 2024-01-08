@@ -5,7 +5,7 @@ on:
   pull_request:
   workflow_dispatch:
     inputs:
-      examplesRepoUserOrOrg:
+      examplesRepo:
         description: '(For non-main Examples) Artemis repo'
         required: true
         default: 'apache/activemq-artemis'
@@ -17,7 +17,7 @@ on:
         type: string
 
 env:
-  ARTEMIS_REPO: ${{ inputs.examplesRepoUserOrOrg || 'apache/activemq-artemis' }}
+  ARTEMIS_REPO: ${{ inputs.examplesRepo || 'apache/activemq-artemis' }}
   ARTEMIS_BRANCH: ${{ inputs.examplesRepoBranch || 'main' }}
 
 jobs:
