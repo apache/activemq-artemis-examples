@@ -1,0 +1,4 @@
+# Since the examples are actually the main/only content of this repo,
+# un-ignore them in linguist so repo language stats reflect the
+# examples and not just some helper scripts.
+examples/** -linguist-documentation
