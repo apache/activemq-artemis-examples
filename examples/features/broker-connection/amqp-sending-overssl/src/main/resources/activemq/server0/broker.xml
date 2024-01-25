@@ -37,7 +37,7 @@ under the License.
 
       <broker-connections>
          <amqp-connection uri="tcp://localhost:5771?sslEnabled=true;verifyHost=true;trustStorePath=server-ca-truststore.p12;trustStorePassword=securepass" name="otherBrokerSSL" retry-interval="1000">
-            <sender address-match="#"/>
+            <sender queue-name="exampleQueue"/>
          </amqp-connection>
       </broker-connections>
 
