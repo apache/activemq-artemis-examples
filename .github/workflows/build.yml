@@ -119,7 +119,7 @@ jobs:
         with:
           path: |
             ~/.m2/repository/
-          key: ${{ runner.os }}-mvn-${{ hashFiles('activemq-artemis-examples**/pom.xml') }}
+          key: ${{ runner.os }}-mvn-${{ hashFiles('activemq-artemis-examples/**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-mvn-
 
