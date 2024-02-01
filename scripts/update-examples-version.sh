@@ -51,7 +51,8 @@ echo "Setting examples version to ${NEW_VERSION}"
 
 # Update root pom parent pom version
 echo "Updating root pom *parent* version"
-sed -i "/<parent>/,/<version>/ s~<version>[^<]*~<version>${NEW_VERSION}~g w /dev/stdout" ./pom.xml
+sed -i.bak "/<parent>/,/<version>/ s~<version>[^<]*~<version>${NEW_VERSION}~g w /dev/stdout" ./pom.xml
+rm -f pom.xml.bak
 
 # Update root pom version and all the child modules to match
 echo "Updating root pom version and child modules"
