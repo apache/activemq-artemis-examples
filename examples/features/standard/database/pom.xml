@@ -59,6 +59,8 @@ under the License.
                      <libList>
                         <!-- adding derby for the example -->
                         <arg>org.apache.derby:derby:${apache.derby.version}</arg>
+                        <arg>org.apache.derby:derbytools:${apache.derby.version}</arg>
+                        <arg>org.apache.derby:derbyshared:${apache.derby.version}</arg>
                      </libList>
                      <args>
                         <arg>--jdbc</arg>
