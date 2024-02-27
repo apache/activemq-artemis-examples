@@ -38,8 +38,11 @@ under the License.
    <dependencies>
       <dependency>
          <groupId>org.apache.activemq</groupId>
-         <artifactId>artemis-spring-integration</artifactId>
-         <version>${project.version}</version>
+         <artifactId>artemis-jms-client</artifactId>
+      </dependency>
+      <dependency>
+         <groupId>org.apache.activemq</groupId>
+         <artifactId>artemis-server</artifactId>
       </dependency>
       <dependency>
          <groupId>jakarta.jms</groupId>
