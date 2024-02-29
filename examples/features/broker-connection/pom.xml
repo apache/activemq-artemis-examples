@@ -52,6 +52,7 @@ under the License.
             <module>amqp-receiving-messages</module>
             <module>amqp-sending-overssl</module>
             <module>amqp-federation</module>
+            <module>amqp-federation-multicast-hub-spoke</module>
             <module>disaster-recovery</module>
          </modules>
       </profile>
@@ -63,6 +64,7 @@ under the License.
             <module>amqp-receiving-messages</module>
             <module>amqp-sending-overssl</module>
             <module>amqp-federation</module>
+            <module>amqp-federation-multicast-hub-spoke</module>
             <module>disaster-recovery</module>
          </modules>
       </profile>
