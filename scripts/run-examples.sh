@@ -174,4 +174,6 @@ cd amqp-receiving-messages; mvn verify; cd ..
 cd amqp-sending-messages; mvn verify; cd ..
 cd amqp-sending-overssl; mvn verify; cd ..
 cd disaster-recovery; mvn verify; cd ..
+cd amqp-federation; mvn verify; cd ..
+cd amqp-federation-multicast-hub-spoke; mvn verify; cd ..
 
