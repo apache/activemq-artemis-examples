@@ -27,9 +27,9 @@ under the License.
       <version>2.33.0-SNAPSHOT</version>
    </parent>
 
-   <artifactId>amqp-federation-multicast-hub-spoke</artifactId>
+   <artifactId>amqp-federation-multicast-ring</artifactId>
    <packaging>jar</packaging>
-   <name>amqp-federation Multicast Hub and Spoke</name>
+   <name>amqp-federation Multicast Ring</name>
 
    <properties>
       <activemq.basedir>${project.basedir}/../../../..</activemq.basedir>
@@ -49,123 +49,123 @@ under the License.
             <artifactId>artemis-maven-plugin</artifactId>
             <executions>
                <execution>
-                  <id>createHub</id>
+                  <id>createServer1</id>
                   <goals>
                      <goal>create</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <instance>${basedir}/target/hub</instance>
+                     <instance>${basedir}/target/server1</instance>
                      <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/activemq/hub</configuration>
+                     <configuration>${basedir}/target/classes/activemq/server1</configuration>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                   </configuration>
                </execution>
                <execution>
-                  <id>createSpoke1</id>
+                  <id>createServer2</id>
                   <goals>
                      <goal>create</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <instance>${basedir}/target/spoke1</instance>
+                     <instance>${basedir}/target/server2</instance>
                      <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/activemq/spoke1</configuration>
+                     <configuration>${basedir}/target/classes/activemq/server2</configuration>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                   </configuration>
                </execution>
                <execution>
-                  <id>createSpoke2</id>
+                  <id>createServer3</id>
                   <goals>
                      <goal>create</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <instance>${basedir}/target/spoke2</instance>
+                     <instance>${basedir}/target/server3</instance>
                      <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/activemq/spoke2</configuration>
+                     <configuration>${basedir}/target/classes/activemq/server3</configuration>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                   </configuration>
                </execution>
                <execution>
-                  <id>createSpoke3</id>
+                  <id>createServer4</id>
                   <goals>
                      <goal>create</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <instance>${basedir}/target/spoke3</instance>
+                     <instance>${basedir}/target/server4</instance>
                      <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/activemq/spoke3</configuration>
+                     <configuration>${basedir}/target/classes/activemq/server4</configuration>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                   </configuration>
                </execution>
                <execution>
-                  <id>startHub</id>
+                  <id>startServer4</id>
                   <goals>
                      <goal>cli</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <spawn>true</spawn>
-                     <location>${basedir}/target/hub</location>
-                     <testURI>tcp://localhost:5460</testURI>
+                     <location>${basedir}/target/server4</location>
+                     <testURI>tcp://localhost:5960</testURI>
                      <args>
                         <param>run</param>
                      </args>
-                     <name>hub</name>
+                     <name>server4</name>
                   </configuration>
                </execution>
                <execution>
-                  <id>startSpoke3</id>
+                  <id>startServer3</id>
                   <goals>
                      <goal>cli</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <spawn>true</spawn>
-                     <location>${basedir}/target/spoke3</location>
+                     <location>${basedir}/target/server3</location>
                      <testURI>tcp://localhost:5860</testURI>
                      <args>
                         <param>run</param>
                      </args>
-                     <name>spoke3</name>
+                     <name>server3</name>
                   </configuration>
                </execution>
                <execution>
-                  <id>startSpoke2</id>
+                  <id>startServer2</id>
                   <goals>
                      <goal>cli</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <spawn>true</spawn>
-                     <location>${basedir}/target/spoke2</location>
+                     <location>${basedir}/target/server2</location>
                      <testURI>tcp://localhost:5760</testURI>
                      <args>
                         <param>run</param>
                      </args>
-                     <name>spoke2</name>
+                     <name>server2</name>
                   </configuration>
                </execution>
                <execution>
-                  <id>startSpoke1</id>
+                  <id>startServer1</id>
                   <goals>
                      <goal>cli</goal>
                   </goals>
                   <configuration>
                      <spawn>true</spawn>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/spoke1</location>
+                     <location>${basedir}/target/server1</location>
                      <testURI>tcp://localhost:5660</testURI>
                      <args>
                         <param>run</param>
                      </args>
-                     <name>spoke1</name>
+                     <name>server1</name>
                   </configuration>
                </execution>
                <execution>
@@ -180,50 +180,50 @@ under the License.
                   </configuration>
                </execution>
                <execution>
-                  <id>stopSpoke1</id>
+                  <id>stopServer1</id>
                   <goals>
                      <goal>stop</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/spoke1</location>
+                     <location>${basedir}/target/server1</location>
                   </configuration>
                </execution>
                <execution>
-                  <id>stopSpoke2</id>
+                  <id>stopServer2</id>
                   <goals>
                      <goal>stop</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/spoke2</location>
+                     <location>${basedir}/target/server2</location>
                   </configuration>
                </execution>
                <execution>
-                  <id>stopSpoke3</id>
+                  <id>stopServer3</id>
                   <goals>
                      <goal>stop</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/spoke3</location>
+                     <location>${basedir}/target/server3</location>
                   </configuration>
                </execution>
                <execution>
-                  <id>stopHub</id>
+                  <id>stopServer4</id>
                   <goals>
                      <goal>stop</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/hub</location>
+                     <location>${basedir}/target/server4</location>
                   </configuration>
                </execution>
             </executions>
             <dependencies>
                <dependency>
                   <groupId>org.apache.activemq.examples.broker-connection</groupId>
-                  <artifactId>amqp-federation-multicast-hub-spoke</artifactId>
+                  <artifactId>amqp-federation-multicast-ring</artifactId>
                   <version>${project.version}</version>
                </dependency>
             </dependencies>

@@ -53,6 +53,10 @@ under the License.
             <module>amqp-sending-overssl</module>
             <module>amqp-federation</module>
             <module>amqp-federation-multicast-hub-spoke</module>
+            <module>amqp-federation-multicast-ring</module>
+            <module>amqp-federation-multicast-fanout</module>
+            <module>amqp-federation-queue-dual-federation</module>
+            <module>amqp-federation-queue-priority</module>
             <module>disaster-recovery</module>
          </modules>
       </profile>
@@ -65,6 +69,10 @@ under the License.
             <module>amqp-sending-overssl</module>
             <module>amqp-federation</module>
             <module>amqp-federation-multicast-hub-spoke</module>
+            <module>amqp-federation-multicast-ring</module>
+            <module>amqp-federation-multicast-fanout</module>
+            <module>amqp-federation-queue-dual-federation</module>
+            <module>amqp-federation-queue-priority</module>
             <module>disaster-recovery</module>
          </modules>
       </profile>
