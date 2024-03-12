@@ -88,29 +88,29 @@ public class BrokerFederationExample {
          if (receivedHub == null) {
             System.out.println("Did not receive message on Hub that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) receivedHub;
-            System.out.println("Received message on the Hub : " + mssage.getText());
+            final TextMessage message = (TextMessage) receivedHub;
+            System.out.println("Received message on the Hub : " + message.getText());
          }
 
          if (received1 == null) {
             System.out.println("Did not receive message on spoke 1 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received1;
-            System.out.println("Received message on spoke 1 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received1;
+            System.out.println("Received message on spoke 1 : " + message.getText());
          }
 
          if (received2 == null) {
             System.out.println("Did not receive message on spoke 2 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received2;
-            System.out.println("Received message on spoke 2 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received2;
+            System.out.println("Received message on spoke 2 : " + message.getText());
          }
 
          if (received3 == null) {
             System.out.println("Did not receive message on spoke 3 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received3;
-            System.out.println("Received message on spoke 3 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received3;
+            System.out.println("Received message on spoke 3 : " + message.getText());
          }
       }
 
@@ -126,29 +126,29 @@ public class BrokerFederationExample {
          if (receivedHub == null) {
             System.out.println("Did not receive message on Hub that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) receivedHub;
-            System.out.println("Received message on the Hub : " + mssage.getText());
+            final TextMessage message = (TextMessage) receivedHub;
+            System.out.println("Received message on the Hub : " + message.getText());
          }
 
          if (received1 == null) {
             System.out.println("Did not receive message on spoke 1 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received1;
-            System.out.println("Received message on spoke 1 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received1;
+            System.out.println("Received message on spoke 1 : " + message.getText());
          }
 
          if (received2 == null) {
             System.out.println("Did not receive message on spoke 2 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received2;
-            System.out.println("Received message on spoke 2 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received2;
+            System.out.println("Received message on spoke 2 : " + message.getText());
          }
 
          if (received3 == null) {
             System.out.println("Did not receive message on spoke 3 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received3;
-            System.out.println("Received message on spoke 3 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received3;
+            System.out.println("Received message on spoke 3 : " + message.getText());
          }
       }
 
@@ -164,29 +164,29 @@ public class BrokerFederationExample {
          if (receivedHub == null) {
             System.out.println("Did not receive message on Hub that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) receivedHub;
-            System.out.println("Received message on the Hub : " + mssage.getText());
+            final TextMessage message = (TextMessage) receivedHub;
+            System.out.println("Received message on the Hub : " + message.getText());
          }
 
          if (received1 == null) {
             System.out.println("Did not receive message on spoke 1 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received1;
-            System.out.println("Received message on spoke 1 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received1;
+            System.out.println("Received message on spoke 1 : " + message.getText());
          }
 
          if (received2 == null) {
             System.out.println("Did not receive message on spoke 2 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received2;
-            System.out.println("Received message on spoke 2 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received2;
+            System.out.println("Received message on spoke 2 : " + message.getText());
          }
 
          if (received3 == null) {
             System.out.println("Did not receive message on spoke 3 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received3;
-            System.out.println("Received message on spoke 3 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received3;
+            System.out.println("Received message on spoke 3 : " + message.getText());
          }
       }
 
@@ -202,29 +202,29 @@ public class BrokerFederationExample {
          if (receivedHub == null) {
             System.out.println("Did not receive message on Hub that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) receivedHub;
-            System.out.println("Received message on the Hub : " + mssage.getText());
+            final TextMessage message = (TextMessage) receivedHub;
+            System.out.println("Received message on the Hub : " + message.getText());
          }
 
          if (received1 == null) {
             System.out.println("Did not receive message on spoke 1 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received1;
-            System.out.println("Received message on spoke 1 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received1;
+            System.out.println("Received message on spoke 1 : " + message.getText());
          }
 
          if (received2 == null) {
             System.out.println("Did not receive message on spoke 2 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received2;
-            System.out.println("Received message on spoke 2 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received2;
+            System.out.println("Received message on spoke 2 : " + message.getText());
          }
 
          if (received3 == null) {
             System.out.println("Did not receive message on spoke 3 that was expected");
          } else {
-            final TextMessage mssage = (TextMessage) received3;
-            System.out.println("Received message on spoke 3 : " + mssage.getText());
+            final TextMessage message = (TextMessage) received3;
+            System.out.println("Received message on spoke 3 : " + message.getText());
          }
       }
    }

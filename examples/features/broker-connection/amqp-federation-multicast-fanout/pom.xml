@@ -27,9 +27,9 @@ under the License.
       <version>2.33.0-SNAPSHOT</version>
    </parent>
 
-   <artifactId>amqp-federation-multicast-hub-spoke</artifactId>
+   <artifactId>amqp-federation-multicast-fanout</artifactId>
    <packaging>jar</packaging>
-   <name>amqp-federation Multicast Hub and Spoke</name>
+   <name>amqp-federation Multicast Fanout</name>
 
    <properties>
       <activemq.basedir>${project.basedir}/../../../..</activemq.basedir>
@@ -49,123 +49,213 @@ under the License.
             <artifactId>artemis-maven-plugin</artifactId>
             <executions>
                <execution>
-                  <id>createHub</id>
+                  <id>createSource</id>
                   <goals>
                      <goal>create</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <instance>${basedir}/target/hub</instance>
+                     <instance>${basedir}/target/source</instance>
                      <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/activemq/hub</configuration>
+                     <configuration>${basedir}/target/classes/activemq/source</configuration>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                   </configuration>
                </execution>
                <execution>
-                  <id>createSpoke1</id>
+                  <id>createTier1-1</id>
                   <goals>
                      <goal>create</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <instance>${basedir}/target/spoke1</instance>
+                     <instance>${basedir}/target/tier-1.1</instance>
                      <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/activemq/spoke1</configuration>
+                     <configuration>${basedir}/target/classes/activemq/tier-1.1</configuration>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                   </configuration>
                </execution>
                <execution>
-                  <id>createSpoke2</id>
+                  <id>createTier1-2</id>
                   <goals>
                      <goal>create</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <instance>${basedir}/target/spoke2</instance>
+                     <instance>${basedir}/target/tier-1.2</instance>
                      <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/activemq/spoke2</configuration>
+                     <configuration>${basedir}/target/classes/activemq/tier-1.2</configuration>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                   </configuration>
                </execution>
                <execution>
-                  <id>createSpoke3</id>
+                  <id>createTier2-1</id>
                   <goals>
                      <goal>create</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <instance>${basedir}/target/spoke3</instance>
+                     <instance>${basedir}/target/tier-2.1</instance>
                      <allowAnonymous>true</allowAnonymous>
-                     <configuration>${basedir}/target/classes/activemq/spoke3</configuration>
+                     <configuration>${basedir}/target/classes/activemq/tier-2.1</configuration>
                      <!-- this makes it easier in certain envs -->
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                   </configuration>
                </execution>
                <execution>
-                  <id>startHub</id>
+                  <id>createTier2-2</id>
+                  <goals>
+                     <goal>create</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <instance>${basedir}/target/tier-2.2</instance>
+                     <allowAnonymous>true</allowAnonymous>
+                     <configuration>${basedir}/target/classes/activemq/tier-2.2</configuration>
+                     <!-- this makes it easier in certain envs -->
+                     <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>createTier2-3</id>
+                  <goals>
+                     <goal>create</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <instance>${basedir}/target/tier-2.3</instance>
+                     <allowAnonymous>true</allowAnonymous>
+                     <configuration>${basedir}/target/classes/activemq/tier-2.3</configuration>
+                     <!-- this makes it easier in certain envs -->
+                     <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>createTier2-4</id>
+                  <goals>
+                     <goal>create</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <instance>${basedir}/target/tier-2.4</instance>
+                     <allowAnonymous>true</allowAnonymous>
+                     <configuration>${basedir}/target/classes/activemq/tier-2.4</configuration>
+                     <!-- this makes it easier in certain envs -->
+                     <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>startSource</id>
                   <goals>
                      <goal>cli</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <spawn>true</spawn>
-                     <location>${basedir}/target/hub</location>
-                     <testURI>tcp://localhost:5460</testURI>
+                     <location>${basedir}/target/source</location>
+                     <testURI>tcp://localhost:5060</testURI>
                      <args>
                         <param>run</param>
                      </args>
-                     <name>hub</name>
+                     <name>source</name>
                   </configuration>
                </execution>
                <execution>
-                  <id>startSpoke3</id>
+                  <id>startTier1-1</id>
                   <goals>
                      <goal>cli</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <spawn>true</spawn>
-                     <location>${basedir}/target/spoke3</location>
-                     <testURI>tcp://localhost:5860</testURI>
+                     <location>${basedir}/target/tier-1.1</location>
+                     <testURI>tcp://localhost:5161</testURI>
                      <args>
                         <param>run</param>
                      </args>
-                     <name>spoke3</name>
+                     <name>Tier-1-1</name>
                   </configuration>
                </execution>
                <execution>
-                  <id>startSpoke2</id>
+                  <id>startTier1-2</id>
                   <goals>
                      <goal>cli</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <spawn>true</spawn>
-                     <location>${basedir}/target/spoke2</location>
-                     <testURI>tcp://localhost:5760</testURI>
+                     <location>${basedir}/target/tier-1.2</location>
+                     <testURI>tcp://localhost:5162</testURI>
                      <args>
                         <param>run</param>
                      </args>
-                     <name>spoke2</name>
+                     <name>Tier-1-2</name>
                   </configuration>
                </execution>
                <execution>
-                  <id>startSpoke1</id>
+                  <id>startTier2-1</id>
                   <goals>
                      <goal>cli</goal>
                   </goals>
                   <configuration>
-                     <spawn>true</spawn>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/spoke1</location>
-                     <testURI>tcp://localhost:5660</testURI>
+                     <spawn>true</spawn>
+                     <location>${basedir}/target/tier-2.1</location>
+                     <testURI>tcp://localhost:5261</testURI>
                      <args>
                         <param>run</param>
                      </args>
-                     <name>spoke1</name>
+                     <name>Tier-2-1</name>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>startTier2-2</id>
+                  <goals>
+                     <goal>cli</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <spawn>true</spawn>
+                     <location>${basedir}/target/tier-2.2</location>
+                     <testURI>tcp://localhost:5262</testURI>
+                     <args>
+                        <param>run</param>
+                     </args>
+                     <name>Tier-2-2</name>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>startTier2-3</id>
+                  <goals>
+                     <goal>cli</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <spawn>true</spawn>
+                     <location>${basedir}/target/tier-2.3</location>
+                     <testURI>tcp://localhost:5263</testURI>
+                     <args>
+                        <param>run</param>
+                     </args>
+                     <name>Tier-2-3</name>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>startTier2-4</id>
+                  <goals>
+                     <goal>cli</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <spawn>true</spawn>
+                     <location>${basedir}/target/tier-2.4</location>
+                     <testURI>tcp://localhost:5264</testURI>
+                     <args>
+                        <param>run</param>
+                     </args>
+                     <name>Tier-2-4</name>
                   </configuration>
                </execution>
                <execution>
@@ -180,50 +270,80 @@ under the License.
                   </configuration>
                </execution>
                <execution>
-                  <id>stopSpoke1</id>
+                  <id>stopTier2-1</id>
                   <goals>
                      <goal>stop</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/spoke1</location>
+                     <location>${basedir}/target/tier-2.1</location>
                   </configuration>
                </execution>
                <execution>
-                  <id>stopSpoke2</id>
+                  <id>stopTier2-2</id>
                   <goals>
                      <goal>stop</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/spoke2</location>
+                     <location>${basedir}/target/tier-2.2</location>
                   </configuration>
                </execution>
                <execution>
-                  <id>stopSpoke3</id>
+                  <id>stopTier2-3</id>
                   <goals>
                      <goal>stop</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/spoke3</location>
+                     <location>${basedir}/target/tier-2.3</location>
                   </configuration>
                </execution>
                <execution>
-                  <id>stopHub</id>
+                  <id>stopTier2-4</id>
                   <goals>
                      <goal>stop</goal>
                   </goals>
                   <configuration>
                      <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/hub</location>
+                     <location>${basedir}/target/tier-2.4</location>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>stopTier1-1</id>
+                  <goals>
+                     <goal>stop</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <location>${basedir}/target/tier-1.1</location>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>stopTier1-2</id>
+                  <goals>
+                     <goal>stop</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <location>${basedir}/target/tier-1.2</location>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>stopSource</id>
+                  <goals>
+                     <goal>stop</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <location>${basedir}/target/source</location>
                   </configuration>
                </execution>
             </executions>
             <dependencies>
                <dependency>
                   <groupId>org.apache.activemq.examples.broker-connection</groupId>
-                  <artifactId>amqp-federation-multicast-hub-spoke</artifactId>
+                  <artifactId>amqp-federation-multicast-fanout</artifactId>
                   <version>${project.version}</version>
                </dependency>
             </dependencies>

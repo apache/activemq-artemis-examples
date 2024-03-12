@@ -176,4 +176,8 @@ cd amqp-sending-overssl; mvn verify; cd ..
 cd disaster-recovery; mvn verify; cd ..
 cd amqp-federation; mvn verify; cd ..
 cd amqp-federation-multicast-hub-spoke; mvn verify; cd ..
+cd amqp-federation-multicast-fanout; mvn verify; cd ..
+cd amqp-federation-multicast-ring; mvn verify; cd ..
+cd amqp-federation-queue-dual-federation; mvn verify; cd ..
+cd amqp-federation-queue-priority; mvn verify; cd ..
 
