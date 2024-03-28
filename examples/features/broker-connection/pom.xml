@@ -57,6 +57,7 @@ under the License.
             <module>amqp-federation-multicast-fanout</module>
             <module>amqp-federation-queue-dual-federation</module>
             <module>amqp-federation-queue-priority</module>
+            <module>amqp-federation-queue-multiple-brokers</module>
             <module>disaster-recovery</module>
          </modules>
       </profile>
@@ -73,6 +74,7 @@ under the License.
             <module>amqp-federation-multicast-fanout</module>
             <module>amqp-federation-queue-dual-federation</module>
             <module>amqp-federation-queue-priority</module>
+            <module>amqp-federation-queue-multiple-brokers</module>
             <module>disaster-recovery</module>
          </modules>
       </profile>
