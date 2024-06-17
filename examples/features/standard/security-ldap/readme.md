@@ -1,5 +1,7 @@
 # JMS Security LDAP Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
 **Note:** The logging from the embedded Apache DS LDAP server is verbose and it may appear that there are errors, but these logs can be ignored.

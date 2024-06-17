@@ -8,6 +8,8 @@ using environment-based properties to configure OpenTelemetry SDK.
 
 [![Running the Example Demo](https://img.youtube.com/vi/MVGx7QrztZQ/0.jpg)](https://www.youtube.com/watch?v=MVGx7QrztZQ)
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start
 and create the broker manually.
 > **_NOTE:_**   You must have [jeager](https://github.com/open-telemetry/opentelemetry-java/tree/main/sdk-extensions/autoconfigure#jaeger-exporter) running at `http://localhost:16686`. You can learn more about Jeager [here](https://www.jaegertracing.io/)

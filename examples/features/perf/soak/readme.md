@@ -2,6 +2,8 @@
 
 ## Run The Server Standalone
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 Use the Profile server
 
     mvn -Pserver verify

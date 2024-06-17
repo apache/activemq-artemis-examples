@@ -1,5 +1,7 @@
 # AMQP Broker Connection with Senders on Multicast
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to create and start the broker manually.
 
 This example demonstrates how you can create a broker connection from one broker towards another broker, and send messages from that broker towards the target server.

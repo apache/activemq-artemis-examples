@@ -1,5 +1,7 @@
 # JMS Slow Consumer Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the server manually.
 
 This example demonstrates Slow Consumer policy KILL and NOTIFY and the associated address-settings.

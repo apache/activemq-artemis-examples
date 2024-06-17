@@ -1,5 +1,7 @@
 # JMS Topic Selector Example 2
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
 This example shows you how to selectively consume messages using message selectors with topic consumers.

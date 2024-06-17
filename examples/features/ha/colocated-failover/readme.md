@@ -1,5 +1,7 @@
 # JMS Colocated Failover Shared Store Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory. This example will always spawn and stop multiple brokers.
 
 This example demonstrates how you can colocate live and backup brokers in the same VM. We do this by creating an HA Policy that is colocated. Colocated means that backup brokers can be created and maintained by live brokers on behalf of other live brokers requesting a backup. In this example we create a colocated shared store broker.

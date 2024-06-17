@@ -1,5 +1,7 @@
 # JMS Clustered Durable Subscription Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
 This example demonstrates a clustered JMS durable subscription. Normally durable subscriptions exist on a single node and can only have one subscriber at any one time, however, with ActiveMQ Artemis it's possible to create durable subscription instances with the same name and client-id on different nodes of the cluster, and consume from them simultaneously. This allows the work of processing messages from a durable subscription to be spread across the cluster in a similar way to how JMS Queues can be load balanced across the cluster

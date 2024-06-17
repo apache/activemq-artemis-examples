@@ -1,5 +1,7 @@
 # Embedded Broker with Programmatic Config Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory.
 
 This examples shows how to setup and run an embedded broker using ActiveMQ Artemis.

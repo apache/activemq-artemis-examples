@@ -1,5 +1,7 @@
 # JMS XA Send Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
 This example shows you how message sending behaves in an XA transaction in ActiveMQ Artemis. When a message is sent within the scope of an XA transaction, it will only reach the queue once the transaction is committed. If the transaction is rolled back the sent messages will be discarded by the server.

@@ -1,5 +1,7 @@
 # JMS Colocated Failover Recover Only Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory. This example will always spawn and stop multiple servers.
 
 This example demonstrates how you can colocate live and backup servers in the same VM. We do this by creating an HA Policy that is colocated. Colocated means that backup servers can be created and maintained by live servers on behalf of other requesting live servers. In this example we create a colocated shared store broker that will scale down. That is it will not become live but scale down the journal to the colocated live server.

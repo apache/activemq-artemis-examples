@@ -1,5 +1,7 @@
 # Openwire Chat Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 This example will require multiple windows to be executed
 
 Window 1: 

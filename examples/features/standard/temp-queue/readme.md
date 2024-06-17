@@ -1,5 +1,7 @@
 # JMS Temporary Queue Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
 This example shows you how to use a TemporaryQueue with ActiveMQ Artemis. First a temporary queue is created to send and receive a message and then deleted. Then another temporary queue is created and used after its connection is closed to illustrate its scope.

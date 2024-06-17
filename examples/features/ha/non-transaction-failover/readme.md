@@ -1,5 +1,7 @@
 # JMS Non Transaction Failover Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory.
 
 This example demonstrates two servers coupled as a live-backup pair for high availability (HA), and a client connection failing over from live to backup when the live broker is crashed.

@@ -19,6 +19,10 @@
 -->
 # CDI Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
+To run the example, simply type **mvn verify** from this directory.
+
 This is a simple example that demonstrates how to use CDI to integrate with ActiveMQ Artemis on the client side.  It is designed mainly for connecting to a remote broker rather than embedding within your application.
 
 ## Configuring the connection

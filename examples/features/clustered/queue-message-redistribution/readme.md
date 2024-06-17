@@ -1,5 +1,7 @@
 # Message Redistribution Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
 This example demonstrates message redistribution between queues with the same name deployed in different nodes of a cluster.

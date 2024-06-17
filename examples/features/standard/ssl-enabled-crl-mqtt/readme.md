@@ -1,5 +1,7 @@
 # ActiveMQ Artemis MQTT CRL Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the server manually.
 
 This example shows you how to configure 2-way SSL with CRL along with 2 different connections, one with a valid certificate and another with a revoked certificate.

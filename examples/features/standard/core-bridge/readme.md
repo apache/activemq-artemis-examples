@@ -1,5 +1,7 @@
 # Core Bridge Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
 This example demonstrates a core bridge deployed on one server, which consumes messages from a local queue and forwards them to an address on a second server.

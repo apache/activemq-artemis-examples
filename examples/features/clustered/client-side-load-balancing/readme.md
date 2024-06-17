@@ -1,5 +1,7 @@
 # JMS Client-Side Load-Balancing Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to create and start the broker manually.
 
 This example demonstrates how connections created from a single JMS Connection factory can be created to different nodes of the cluster. In other words it demonstrates how ActiveMQ Artemis does **client side load balancing** of connections across the cluster.

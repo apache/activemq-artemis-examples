@@ -1,5 +1,9 @@
 # Management Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
+To run the example, simply type **mvn verify** from this directory.
+
 This example shows how to manage ActiveMQ Artemis using JMS Messages to invoke management operations on the server.
 
 To manage ActiveMQ Artemis using JMX, see the "jmx" example.

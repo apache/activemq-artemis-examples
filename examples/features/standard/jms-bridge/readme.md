@@ -1,5 +1,7 @@
 # JMS Bridge Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
 This example shows you how to create a JMS Bridge between two ActiveMQ Artemis brokers.

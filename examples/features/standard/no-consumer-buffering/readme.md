@@ -1,5 +1,7 @@
 # No Consumer Buffering Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, or **mvn -PnoServer verify** if you want to start and create the broker manually.
 
 By default, ActiveMQ Artemis consumers buffer messages from the broker in a client side buffer before actual delivery actually occurs.

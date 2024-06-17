@@ -1,5 +1,9 @@
 # MQTT Publish/Subscribe Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
+To run the example, simply type **mvn verify** from this directory.
+
 This is a basic MQTT example that demonstrates how to setup and connect to an Apache Artemis broker and send and receive messages using the MQTT protocol.
 
 ## Setting up the Broker

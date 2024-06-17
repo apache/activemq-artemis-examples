@@ -1,5 +1,7 @@
 # Large Message Example
 
+If you have not already done so, [prepare the broker distribution](../../../../README.md#getting-started) before running the example.
+
 To run the example, simply type **mvn verify** from this directory, This example will start and stop the broker since it will look for a failure.
 
 This example shows you how to send and receive very large messages with ActiveMQ Artemis.

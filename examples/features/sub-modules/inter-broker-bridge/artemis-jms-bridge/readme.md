@@ -15,9 +15,9 @@ This example however is just focusing on integration with 5.x.
 
 ##Preparing
 
-1) From the root dir run `mvn clean package`.
+1) From this directory run `mvn clean package`.
 
-2) Copy artemis-jms-bridge/target/artemis-jms-bridge-<version>.war to the web directory of the Artemis installation.
+2) Copy target/artemis-jms-bridge-<version>.war to the `web` sub-directory of the Artemis installation.
 
 3) Create an instance of the Artemis broker `$ARTEMIS_HOME/bin/artemis create --allow-anonymous myBroker`
 
@@ -33,7 +33,7 @@ This example however is just focusing on integration with 5.x.
 5) Edit `$ARTEMIS_INSTANCE/etc/bootstrap.xml` and add the war file.
 
 ```xml
-<app url="bridge" war="artemis-jms-bridge-<version>.war"/>
+<app name="bridge" url="bridge" war="artemis-jms-bridge-<version>.war"/>
 ```
 
 ##Testing
