@@ -182,4 +182,5 @@ cd amqp-federation-multicast-ring; mvn verify; cd ..
 cd amqp-federation-queue-dual-federation; mvn verify; cd ..
 cd amqp-federation-queue-priority; mvn verify; cd ..
 cd amqp-federation-queue-multiple-brokers; mvn verify; cd ..
+cd amqp-federation-queue-pull-messages; mvn verify; cd ..
 
