@@ -55,14 +55,15 @@ git commit -am "Update examples to version ${RELEASE_VERSION}"
 
 git checkout main
 git merge development --ff-only
+git tag -m "Update examples to version ${RELEASE_VERSION}" ${RELEASE_VERSION}
 
 git checkout development
 ./scripts/update-examples-version.sh ${DEVELOPMENT_VERSION}
 git commit -am "Update examples to version ${DEVELOPMENT_VERSION}"
 
 echo ""
-echo "Update complete, main branch set to ${RELEASE_VERSION}, and development branch set to ${DEVELOPMENT_VERSION}."
+echo "Update complete, main branch set to ${RELEASE_VERSION} and tagged, development branch set to ${DEVELOPMENT_VERSION}"
 echo ""
-echo "Check things over and then push both the *development* and *main* branches."
+echo "Check things over and then push the *development* and *main* branches, plus the ${RELEASE_VERSION} tag."
 echo "(optionally use your fork, to test things out before pushing to the main examples repo or even to raise PRs)".
 
