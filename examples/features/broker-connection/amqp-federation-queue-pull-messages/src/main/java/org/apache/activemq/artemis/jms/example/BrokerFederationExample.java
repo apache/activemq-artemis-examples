@@ -72,12 +72,8 @@ public class BrokerFederationExample {
       System.out.println("Consumer on server 2 received message: " + receivedFromC2.getText());
       System.out.println("Consumer on server 2 received message: " + receivedFromC3.getText());
 
-      final TextMessage receivedFromC1 = (TextMessage) consumerOn1.receive(10_000);
-
-      System.out.println("Consumer on server 1 received message: " + receivedFromC1.getText());
-
-      // Now create local backlog on server 1 which should prevent any messages being federated
-      // from server 2 and the local consumer on server 2 should be able to receive them
+      // Now create more local backlog on server 1 which should prevent more messages being federated
+      // from server 2 and the local consumer on server 2 should be able to receive them all
 
       final TextMessage messageSent4 = sessionOnServer1.createTextMessage("message #4");
       final TextMessage messageSent5 = sessionOnServer1.createTextMessage("message #5");
@@ -86,6 +82,12 @@ public class BrokerFederationExample {
       producerOn1.send(messageSent4);
       producerOn1.send(messageSent5);
       producerOn1.send(messageSent6);
+
+      // Consume the first message from server1 (federated from server2 on first send)
+
+      final TextMessage receivedFromC1 = (TextMessage) consumerOn1.receive(10_000);
+
+      System.out.println("Consumer on server 1 received message: " + receivedFromC1.getText());
 
       // These should stay local to server 2 and be consumed when pulled by the consumer on 2
 

@@ -76,37 +76,37 @@ under the License.
                      <javaOptions>-Djava.net.preferIPv4Stack=true</javaOptions>
                   </configuration>
                </execution>
-               <!-- we first start broker 1, to avoid reconnecting statements -->
-               <execution>
-                  <id>start1</id>
-                  <goals>
-                     <goal>cli</goal>
-                  </goals>
-                  <configuration>
-                     <ignore>${noServer}</ignore>
-                     <spawn>true</spawn>
-                     <location>${basedir}/target/server1</location>
-                     <testURI>tcp://localhost:5660</testURI>
-                     <args>
-                        <param>run</param>
-                     </args>
-                     <name>server1</name>
-                  </configuration>
-               </execution>
+               <!-- we first start broker 2, to avoid reconnecting statements -->
                <execution>
                   <id>start2</id>
                   <goals>
                      <goal>cli</goal>
                   </goals>
                   <configuration>
-                     <spawn>true</spawn>
                      <ignore>${noServer}</ignore>
+                     <spawn>true</spawn>
                      <location>${basedir}/target/server2</location>
                      <testURI>tcp://localhost:5770</testURI>
                      <args>
                         <param>run</param>
                      </args>
                      <name>server2</name>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>start1</id>
+                  <goals>
+                     <goal>cli</goal>
+                  </goals>
+                  <configuration>
+                     <spawn>true</spawn>
+                     <ignore>${noServer}</ignore>
+                     <location>${basedir}/target/server1</location>
+                     <testURI>tcp://localhost:5660</testURI>
+                     <args>
+                        <param>run</param>
+                     </args>
+                     <name>server1</name>
                   </configuration>
                </execution>
                <execution>
@@ -121,16 +121,6 @@ under the License.
                   </configuration>
                </execution>
                <execution>
-                  <id>stop2</id>
-                  <goals>
-                     <goal>stop</goal>
-                  </goals>
-                  <configuration>
-                     <ignore>${noServer}</ignore>
-                     <location>${basedir}/target/server2</location>
-                  </configuration>
-               </execution>
-               <execution>
                   <id>stop1</id>
                   <goals>
                      <goal>stop</goal>
@@ -138,6 +128,16 @@ under the License.
                   <configuration>
                      <ignore>${noServer}</ignore>
                      <location>${basedir}/target/server1</location>
+                  </configuration>
+               </execution>
+               <execution>
+                  <id>stop2</id>
+                  <goals>
+                     <goal>stop</goal>
+                  </goals>
+                  <configuration>
+                     <ignore>${noServer}</ignore>
+                     <location>${basedir}/target/server2</location>
                   </configuration>
                </execution>
             </executions>
