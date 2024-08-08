@@ -83,7 +83,7 @@ under the License.
                     <execution>
                         <id>tomcat-war-exec</id>
                         <goals>
-                            <goal>exec-war</goal>
+                            <goal>exec-war-only</goal>
                         </goals>
                         <phase>package</phase>
                         <configuration>
