@@ -33,8 +33,21 @@
 
    <properties>
       <activemq.basedir>${project.basedir}/../../../..</activemq.basedir>
-      <deltaspike.version>1.7.1</deltaspike.version>
+      <deltaspike.version>1.9.6</deltaspike.version>
+      <weld.version>3.1.9.Final</weld.version>
    </properties>
+
+   <dependencyManagement>
+       <dependencies>
+           <dependency>
+               <groupId>org.jboss.weld</groupId>
+               <artifactId>weld-core-bom</artifactId>
+               <version>${weld.version}</version>
+               <type>pom</type>
+               <scope>import</scope>
+           </dependency>
+       </dependencies>
+   </dependencyManagement>
 
    <dependencies>
       <dependency>
@@ -149,7 +162,7 @@
                      </dependency>
                      <dependency>
                         <groupId>org.jboss.weld.se</groupId>
-                        <artifactId>weld-se</artifactId>
+                        <artifactId>weld-se-shaded</artifactId>
                         <version>${weld.version}</version>
                      </dependency>
                      <dependency>
