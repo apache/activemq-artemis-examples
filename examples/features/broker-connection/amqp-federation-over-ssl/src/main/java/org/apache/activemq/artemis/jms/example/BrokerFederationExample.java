@@ -59,21 +59,12 @@ public class BrokerFederationExample {
       final Topic ordersTopic = sessionOnServer0.createTopic("orders");
       final Queue trackingQueue = sessionOnServer1.createQueue("tracking");
 
-      // Federation from server1 back to server0 on the orders address
-      final MessageProducer ordersProducerOn1 = sessionOnServer1.createProducer(ordersTopic);
+      // Create consumers which generate demand on tracked resources and create federation links
       final MessageConsumer ordersConsumerOn0 = sessionOnServer0.createConsumer(ordersTopic);
-
-      final TextMessage orderMessageSent = sessionOnServer1.createTextMessage("new-order");
-
-      ordersProducerOn1.send(orderMessageSent);
-
-      final TextMessage orderMessageReceived = (TextMessage) ordersConsumerOn0.receive(5_000);
-
-      System.out.println("Consumer on server 0 received order message from producer on server 1 " + orderMessageReceived.getText());
+      final MessageConsumer trackingConsumerOn1 = sessionOnServer1.createConsumer(trackingQueue);
 
       // Federation from server0 to server1 on the tracking queue
       final MessageProducer trackingProducerOn0 = sessionOnServer0.createProducer(trackingQueue);
-      final MessageConsumer trackingConsumerOn1 = sessionOnServer1.createConsumer(trackingQueue);
 
       final TextMessage trackingMessageSent = sessionOnServer0.createTextMessage("new-tracking-data");
 
@@ -82,5 +73,16 @@ public class BrokerFederationExample {
       final TextMessage trackingMessageReceived = (TextMessage) trackingConsumerOn1.receive(5_000);
 
       System.out.println("Consumer on server 1 received tracking data from producer on server 0 " + trackingMessageReceived.getText());
+
+      // Federation from server1 back to server0 on the orders address
+      final MessageProducer ordersProducerOn1 = sessionOnServer1.createProducer(ordersTopic);
+
+      final TextMessage orderMessageSent = sessionOnServer1.createTextMessage("new-order");
+
+      ordersProducerOn1.send(orderMessageSent);
+
+      final TextMessage orderMessageReceived = (TextMessage) ordersConsumerOn0.receive(5_000);
+
+      System.out.println("Consumer on server 0 received order message from producer on server 1 " + orderMessageReceived.getText());
    }
 }
