@@ -89,6 +89,7 @@ jobs:
         run: |
           cd activemq-artemis-examples
           ./scripts/update-examples-version.sh ${{ steps.identify-artemis-version.outputs.artemis-build-version }}
+          git diff -U0 -p --stat
 
       - name: Verify Examples
         run: |
@@ -167,6 +168,7 @@ jobs:
         run: |
           cd activemq-artemis-examples
           ./scripts/update-examples-version.sh ${{ steps.identify-artemis-version.outputs.artemis-build-version }}
+          git diff -U0 -p --stat
 
       - name: Build Examples
         run: |
