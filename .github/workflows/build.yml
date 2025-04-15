@@ -80,8 +80,7 @@ jobs:
         if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
           cd activemq-artemis-examples
-          sed -i "/<parent>/,/<version>/ s~<version>[^<]*~<version>${{ steps.identify-artemis-version.outputs.artemis-build-version }}~g" ./pom.xml
-          CURRENT_EXAMPLES_BUILD_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          CURRENT_EXAMPLES_BUILD_VERSION=$(grep -m 1 -Po '(?<=version>)[^<]+' pom.xml)
           echo "Current Examples version: ${CURRENT_EXAMPLES_BUILD_VERSION}"
           echo "examples-build-version=${CURRENT_EXAMPLES_BUILD_VERSION}" >> $GITHUB_OUTPUT
 
@@ -159,8 +158,7 @@ jobs:
         if: ${{ (github.event_name == 'pull_request' && github.base_ref != 'main') || (github.event_name != 'pull_request' && github.ref != 'refs/heads/main') }}
         run: |
           cd activemq-artemis-examples
-          sed -i "/<parent>/,/<version>/ s~<version>[^<]*~<version>${{ steps.identify-artemis-version.outputs.artemis-build-version }}~g" ./pom.xml
-          CURRENT_EXAMPLES_BUILD_VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+          CURRENT_EXAMPLES_BUILD_VERSION=$(grep -m 1 -Po '(?<=version>)[^<]+' pom.xml)
           echo "Current Examples version: ${CURRENT_EXAMPLES_BUILD_VERSION}"
           echo "examples-build-version=${CURRENT_EXAMPLES_BUILD_VERSION}" >> $GITHUB_OUTPUT
 

@@ -49,11 +49,11 @@ fi
 NEW_VERSION="$1"
 echo "Setting examples version to ${NEW_VERSION}"
 
-# Update root pom parent pom version
-echo "Updating root pom *parent* version"
-sed -i.bak "/<parent>/,/<version>/ s~<version>[^<]*~<version>${NEW_VERSION}~g w /dev/stdout" ./pom.xml
-rm -f pom.xml.bak
+# Update base pom version element
+sed -i.bak "/<\/parent>/,/<version>/ s~<version>[^<]*~<version>${NEW_VERSION}~g" ./pom.xml
 
-# Update root pom version and all the child modules to match
-echo "Updating root pom version and child modules"
-mvn versions:set -DgroupId="org.apache.activemq.examples.*" -DgenerateBackupPoms=false -DprocessAllModules=true -DnewVersion="${NEW_VERSION}" -DprocessFromLocalAggregationRoot=false
+# Update parent pom version element for base pom and all other poms
+find . -path '*/target' -type d -prune -false -o -type f -name 'pom.xml' -print0 | xargs -0 sed -i.bak "/<parent>/,/<version>/ s~<version>[^<]*~<version>${NEW_VERSION}~g"
+
+# Clear out pom.xml.bak files
+find . -name "pom.xml.bak" -type f -exec rm -f '{}' \;
