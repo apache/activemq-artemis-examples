@@ -60,6 +60,7 @@ under the License.
             <module>amqp-federation-queue-priority</module>
             <module>amqp-federation-queue-multiple-brokers</module>
             <module>amqp-federation-queue-pull-messages</module>
+            <module>amqp-bridge</module>
             <module>disaster-recovery</module>
          </modules>
       </profile>
@@ -79,6 +80,7 @@ under the License.
             <module>amqp-federation-queue-priority</module>
             <module>amqp-federation-queue-multiple-brokers</module>
             <module>amqp-federation-queue-pull-messages</module>
+            <module>amqp-bridge</module>
             <module>disaster-recovery</module>
          </modules>
       </profile>
