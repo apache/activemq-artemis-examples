@@ -81,7 +81,7 @@ under the License.
                      <ignore>${noServer}</ignore>
                      <noWeb>false</noWeb>
                      <!-- enable keycloak for hawtio via system property overrides, note use of "console" realm in login.config -->
-                     <javaOptions>-Dhawtio.keycloakEnabled=true -Dhawtio.keycloakClientConfig=${ARTEMIS_INSTANCE_ETC_URI}keycloak-js-client.json -Dhawtio.authenticationEnabled=true -Dhawtio.realm=console</javaOptions>
+                     <javaOptions>-Dhawtio.keycloakEnabled=true -Dhawtio.keycloakClientConfig=classpath:keycloak-js-client.json -Dhawtio.authenticationEnabled=true -Dhawtio.realm=console</javaOptions>
                      <libListWithDeps>
                         <!-- allow keycloak login module classloading from the artemis lib dir-->
                         <arg>org.keycloak:keycloak-adapter-core:jar:${version.org.keycloak}</arg>

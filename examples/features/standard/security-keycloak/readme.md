@@ -107,7 +107,7 @@ This is achieved with system property overrides, passed via the artemis.profile 
 command to create the broker using the artemis-maven-plugin.
 
     JAVA_ARGS=".. -Dhawtio.rolePrincipalClasses=org.apache.activemq.artemis.spi.core.security.jaas.RolePrincipal 
-     -Dhawtio.keycloakEnabled=true -Dhawtio.keycloakClientConfig=keycloak-js-client.json 
+     -Dhawtio.keycloakEnabled=true -Dhawtio.keycloakClientConfig=classpath:keycloak-js-client.json
      -Dhawtio.authenticationEnabled=true -Dhawtio.realm=console"
 
 Note the 'hawtio.realm=console' and the 'hawtio.keycloakClientConfig' in 'keycloak-js-client.json' which provides the keycloak
