@@ -139,9 +139,6 @@ under the License.
                         <arg>io.opentelemetry:opentelemetry-exporter-zipkin:${opentelemetry.version}</arg>
                         <arg>io.opentelemetry:opentelemetry-sdk:${opentelemetry.version}</arg>
                         <arg>io.opentelemetry:opentelemetry-sdk-testing:${opentelemetry.version}</arg>
-                        <arg>junit:junit:${junit.version}</arg>
-                        <arg>org.assertj:assertj-core:3.22.0</arg>
-                        <arg>org.mockito:mockito-core:${mockito.version}</arg>
                      </libListWithDeps>
                      <ignore>${noServer}</ignore>
                   </configuration>
