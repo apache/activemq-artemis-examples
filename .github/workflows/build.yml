@@ -29,7 +29,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java: [ 17 ]
+        java: [ 17, 25 ]
 
     steps:
       - uses: actions/checkout@v4
@@ -108,7 +108,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        java: [ 17 ]
+        java: [ 17, 25 ]
 
     steps:
       - uses: actions/checkout@v4
@@ -170,10 +170,17 @@ jobs:
           ./scripts/update-examples-version.sh ${{ steps.identify-artemis-version.outputs.artemis-build-version }}
           git diff -U0 -p --stat
 
-      - name: Build Examples
+      - name: Build Examples (JDK 25 / -Prelease)
+        if: matrix.java == '25'
         run: |
           cd activemq-artemis-examples
           mvn -s .github/maven-settings.xml package -Prelease
+
+      - name: Build Examples (JDK <25 / -Pexamples,noRun)
+        if: matrix.java != '25'
+        run: |
+          cd activemq-artemis-examples
+          mvn -s .github/maven-settings.xml package -Pexamples,noRun
 
       - name: Clean Up Before Caching
         run: |
